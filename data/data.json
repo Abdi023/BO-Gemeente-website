@@ -1,0 +1,10 @@
+{
+    "name": "mijn naam is abdi",
+    "summary": "dit is het samenvatting",
+    "description": "dit is het description",
+    "imageCover": "imageCover.webp",
+    "images": [
+        "image1.webp",
+        "image2.webp"
+    ]
+}
