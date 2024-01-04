@@ -1,27 +1,59 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 
+const alineaSchema = new mongoose.Schema({
+  _id: false,
+  alineaNaam: {
+    type: String,
+  },
+  alineaParagraph: {
+    type: String,
+  },
+});
+
+const projectListSchema = new mongoose.Schema({
+  _id: false,
+  list1: {
+    type: String,
+  },
+  list2: {
+    type: String,
+  },
+  list3: {
+    type: String,
+  },
+});
+
 const mensenSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'A product must have a name'],
-      unique: true,
-      trim: true,
     },
     slug: String,
     summary: {
       type: String,
-      trim: true,
-      required: [true, 'A product must have a summary'],
     },
     description: {
       type: String,
-      trim: true,
     },
+    alineas: [
+      {
+        _id: false,
+        alinea1: alineaSchema,
+        alinea2: alineaSchema,
+      },
+    ],
+    projecten: [
+      {
+        _id: false,
+        projectheader: {
+          type: String,
+        },
+        projectlist: [projectListSchema],
+      },
+    ],
     imageCover: {
       type: String,
-      required: [true, 'A product must have a cover image'],
     },
     images: [String],
     createdAt: {
@@ -39,7 +71,9 @@ const mensenSchema = new mongoose.Schema(
 mensenSchema.index({ slug: 1 });
 
 mensenSchema.pre('save', function (next) {
-  this.slug = slugify(this.name, { lower: true });
+  if (this.isModified('name')) {
+    this.slug = slugify(this.name, { lower: true });
+  }
   next();
 });
 

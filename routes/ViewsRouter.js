@@ -3,22 +3,31 @@ const ViewsController = require('../controllers/ViewsController');
 
 const router = express.Router();
 
-// home pagina
+//  pagina
 router.get('/',  ViewsController.MensenPagina)
 
-// mensen pagina
-router
-    .get('/mensen', ViewsController.MensenPagina);
-router
-    // .get('/mensen/:slug', ViewsController.ViewMensenPagina);
+router.get('/mensen/:slug', ViewsController.ViewMensenPagina)
+
 
 // expertise 
-router
-    .get('/expertise', ViewsController.ExpertisePagina);
-router
-    .get('/projecten', ViewsController.ProjectenPagina);
-router
-    .get('/publicaties', ViewsController.PublicatiesPagina);
+router.get('/expertise', ViewsController.ExpertisenPagina);
+
+router.get('/viewexpert/:slug', ViewsController.ViewExpertisenPagina);
+
+// 
+router.get('/projecten', ViewsController.ProjectenPagina);
+
+// 
+router.get('/project/:slug', ViewsController.ViewProjectenPagina);
+
+
+// 
+router.get('/publicaties', ViewsController.PublicatiesPagina);
+
+// 
+router.get('/viewpublicatie/:slug', ViewsController.ViewPublicPagina);
+
+
 
 
 module.exports = router;

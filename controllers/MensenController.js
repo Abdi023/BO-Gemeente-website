@@ -38,7 +38,7 @@ exports.resizeProductImages = catchAsync(async (req, res, next) => {
 
   await Promise.all(
     req.files.images.map(async (file, i) => {
-      const filename = `mens-${req.params.id}-${i + 1}.webp`;
+      const filename = `mensen-${req.params.id}-${i + 1}.webp`;
 
       await sharp(file.buffer)
         .resize({ fit: 'contain' })
