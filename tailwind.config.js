@@ -9,7 +9,9 @@ module.exports = {
       height: {
         "slider": "40rem",
         "card_height":"34rem",
-        "Pub_card_height":"25rem",
+        "Pub_card_height":"26rem",
+        "footer_height":"19.313rem",
+        
       },
       fontSize: {
         "fontsizeNormal":"0.95rem",
