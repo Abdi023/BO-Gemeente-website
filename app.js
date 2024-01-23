@@ -47,6 +47,9 @@ app.use('/api/v1/expertise', ExpertiseRouter);
 app.use('/api/v1/projecten', ProjectenRouter);
 app.use('/api/v1/publicaties', PublicatiesRouter);
 
+
+
+
 // error
 app.use((req, res, next) => {
     next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

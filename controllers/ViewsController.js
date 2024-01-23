@@ -104,3 +104,39 @@ exports.ViewPublicPagina = catchAsync(async (req, res, next) =>{
     });
 });
 
+
+
+
+// pmv
+exports.PMBindex = catchAsync(async (req, res, next) => {
+    res.status(200).render('pmb/index', {
+        title: `pbm`
+    });    
+});
+
+exports.PMBorganisaties = catchAsync(async (req, res, next) => {
+    res.status(200).render('pmb/organisatie', {
+        title: `pbm`
+    });    
+});
+
+exports.PMBprojecten = catchAsync(async (req, res, next) => {
+    res.status(200).render('pmb/project', {
+        title: `pbm`
+    });    
+});
+
+// viewprojecten page
+exports.PMBviewProject = catchAsync(async (req, res, next) => {
+    res.status(200).render('pmb/viewpmv/viewproject', {
+        title: `pbm`
+    });    
+});
+
+exports.PMBwerken = catchAsync(async (req, res, next) => {
+    res.status(200).render('pmb/werken', {
+        title: `pbm`
+    });    
+});
+
+
